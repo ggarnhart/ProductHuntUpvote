@@ -12,7 +12,6 @@ def hashTheUsers()
     username = x[0,index-1] #-1 because of comma
     pw = x[index+1,len] #1 because no space please
     all[username] = pw
-    #puts "Hello! x is #{x}. This resulted in #{all[username]}"
   end
   return all
 end
@@ -30,7 +29,6 @@ def goOutAndVote(user, password, link)
   b.goto("producthunt.com/auth/twitter?origin=%2F")
   b.text_field(:name => "session[username_or_email]").set(user)
   b.text_field(:name => "session[password]").set(password)
-  #b.button(:type => "submit").click
   sleep(3)
   b.goto(link)
   sleep(2)
@@ -43,5 +41,5 @@ end
 
 users = hashTheUsers
 
-bringTheMasses(users, "https://www.producthunt.com/posts/moviepass-locations")
+bringTheMasses(users, "https://www.producthunt.com/posts/link") # copy the link to the actual product and put it here.
 goOutAndVote(usernames, passwords, emails)
